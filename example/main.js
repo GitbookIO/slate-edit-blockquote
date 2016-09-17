@@ -5,7 +5,7 @@ const PluginEditBlockquote = require('../lib/');
 
 const stateJson = require('./state');
 
-const plugin = PluginEditBlockquote()
+const plugin = PluginEditBlockquote();
 const plugins = [
     plugin
 ];
@@ -39,16 +39,28 @@ const Example = React.createClass({
         );
     },
 
+    onUnwrapBlockquote(e) {
+        const { state } = this.state;
+
+        this.onChange(
+            plugin.transforms.unwrapBlockquote(state.transform()).apply()
+        );
+    },
+
     render() {
+        const { state } = this.state;
+        const inBlockquote = plugin.utils.isSelectionInBlockquote(state);
+
         return (
             <div>
                 <div>
                     <button onClick={this.onWrapInBlockquote}>Blockquote</button>
+                    <button onClick={this.onUnwrapBlockquote} disabled={!inBlockquote}>Unwrap</button>
                 </div>
                 <Slate.Editor
                     placeholder={'Enter some text...'}
                     plugins={plugins}
-                    state={this.state.state}
+                    state={state}
                     onChange={this.onChange}
                     schema={SCHEMA}
                 />
