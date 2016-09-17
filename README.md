@@ -15,8 +15,8 @@ npm install slate-edit-blockquote
 
 Natural keybindings:
 
-- Pressing <kbd>Enter</kbd> in an empty block (inside the blockauote), unwrap it
-- Pressing <kbd>Backspace</kbd> at the start of the text, unwrap it
+- Pressing <kbd>Enter</kbd> in an empty block of a blockquote, exits the blockquote
+- Pressing <kbd>Backspace</kbd> at the start of a block in a blockquote, unwraps from the blockquote
 
 ### Simple Usage
 
