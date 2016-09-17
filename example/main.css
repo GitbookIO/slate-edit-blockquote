@@ -1,0 +1,11 @@
+#example {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+#example blockquote {
+    padding-left: 10px;
+    margin-left: 0px;
+    border-left: 3px solid #e5e5e5;
+}
