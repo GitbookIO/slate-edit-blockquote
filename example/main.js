@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 const React = require('react');
 const ReactDOM = require('react-dom');
 const Slate = require('slate');
