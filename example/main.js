@@ -5,8 +5,9 @@ const PluginEditBlockquote = require('../lib/');
 
 const stateJson = require('./state');
 
+const plugin = PluginEditBlockquote()
 const plugins = [
-    PluginEditBlockquote()
+    plugin
 ];
 
 const SCHEMA = {
@@ -30,15 +31,28 @@ const Example = React.createClass({
         });
     },
 
+    onWrapInBlockquote(e) {
+        const { state } = this.state;
+
+        this.onChange(
+            plugin.transforms.wrapInBlockquote(state.transform()).apply()
+        );
+    },
+
     render() {
         return (
-            <Slate.Editor
-                placeholder={'Enter some text...'}
-                plugins={plugins}
-                state={this.state.state}
-                onChange={this.onChange}
-                schema={SCHEMA}
-            />
+            <div>
+                <div>
+                    <button onClick={this.onWrapInBlockquote}>Blockquote</button>
+                </div>
+                <Slate.Editor
+                    placeholder={'Enter some text...'}
+                    plugins={plugins}
+                    state={this.state.state}
+                    onChange={this.onChange}
+                    schema={SCHEMA}
+                />
+            </div>
     );
     }
 });
