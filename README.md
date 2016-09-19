@@ -50,3 +50,10 @@ Return true if selection is inside a blockquote (and it can be unwrap).
 `plugin.transforms.wrapInBlockquote(transform: Transform) => Transform`
 
 Wrap current block in a new blockquote.
+
+#### `transforms.unwrapBlockquote`
+
+`plugin.transforms.unwrapBlockquote(transform: Transform) => Transform`
+
+Unwrap from current blockquote if any.
+
