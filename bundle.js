@@ -186,9 +186,9 @@ function getCurrentBlockquote(opts, state, block) {
         block = state.startBlock;
     }
 
-    return block.type === opts.type ? block : document.getClosest(block.key, function (n) {
-        return n.type === opts.type;
-    });
+    var parent = document.getParent(block.key);
+
+    return parent && parent.type === opts.type ? parent : null;
 }
 
 module.exports = getCurrentBlockquote;
@@ -344,9 +344,7 @@ var unwrapBlockquote = require('./transforms/unwrapBlockquote');
 /**
  * User pressed Enter in an editor
  *
- * Enter in a list item should split the list item
- * Enter in an empty list item should remove it
- * Shift+Enter in a list item should make a new line
+ * Enter on an empty block inside a blockquote exit the blockquote.
  */
 function onEnter(event, data, state, opts) {
     var startBlock = state.startBlock;
