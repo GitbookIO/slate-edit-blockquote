@@ -4510,7 +4510,7 @@ module.exports={
   "_args": [
     [
       "cheerio@^0.22.0",
-      "/Users/samypesse/Projects/GitBook/slate-edit-blockquote/node_modules/slate"
+      "/Users/nicolas/Prog/GitBook/slate/slate-edit-blockquote/node_modules/slate"
     ]
   ],
   "_from": "cheerio@>=0.22.0 <0.23.0",
@@ -4544,7 +4544,7 @@ module.exports={
   "_shasum": "a9baa860a3f9b595a6b81b1a86873121ed3a269e",
   "_shrinkwrap": null,
   "_spec": "cheerio@^0.22.0",
-  "_where": "/Users/samypesse/Projects/GitBook/slate-edit-blockquote/node_modules/slate",
+  "_where": "/Users/nicolas/Prog/GitBook/slate/slate-edit-blockquote/node_modules/slate",
   "author": {
     "email": "mattmuelle@gmail.com",
     "name": "Matt Mueller",
@@ -4598,31 +4598,31 @@ module.exports={
   "gitHead": "35c4917205dca9d08139c95419e2626c0689e38a",
   "homepage": "https://github.com/cheeriojs/cheerio#readme",
   "keywords": [
+    "html",
     "htmlparser",
     "jquery",
-    "selector",
-    "scraper",
     "parser",
-    "html"
+    "scraper",
+    "selector"
   ],
   "license": "MIT",
   "main": "./index.js",
   "maintainers": [
     {
-      "email": "mattmuelle@gmail.com",
-      "name": "mattmueller"
+      "name": "mattmueller",
+      "email": "mattmuelle@gmail.com"
     },
     {
-      "email": "dc@davidchambers.me",
-      "name": "davidchambers"
+      "name": "davidchambers",
+      "email": "dc@davidchambers.me"
     },
     {
-      "email": "mike@mikepennisi.com",
-      "name": "jugglinmike"
+      "name": "jugglinmike",
+      "email": "mike@mikepennisi.com"
     },
     {
-      "email": "me@feedic.com",
-      "name": "feedic"
+      "name": "feedic",
+      "email": "me@feedic.com"
     }
   ],
   "name": "cheerio",
