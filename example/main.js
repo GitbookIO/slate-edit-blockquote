@@ -27,7 +27,7 @@ const Example = React.createClass({
         };
     },
 
-    onChange(state) {
+    onChange({ state }) {
         this.setState({
             state
         });
@@ -37,7 +37,7 @@ const Example = React.createClass({
         const { state } = this.state;
 
         this.onChange(
-            plugin.transforms.wrapInBlockquote(state.transform()).apply()
+            plugin.changes.wrapInBlockquote(state.change())
         );
     },
 
@@ -45,7 +45,7 @@ const Example = React.createClass({
         const { state } = this.state;
 
         this.onChange(
-            plugin.transforms.unwrapBlockquote(state.transform()).apply()
+            plugin.changes.unwrapBlockquote(state.change())
         );
     },
 
@@ -67,7 +67,7 @@ const Example = React.createClass({
                     schema={SCHEMA}
                 />
             </div>
-    );
+        );
     }
 });
 

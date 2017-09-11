@@ -37,7 +37,7 @@ This plugin accepts options to redefine the following block types:
 
 ### Utilities
 
-`slate-edit-blockquote` exports utilities and transforms:
+`slate-edit-blockquote` exports utilities and changes:
 
 #### `utils.isSelectionInBlockquote`
 
@@ -45,15 +45,14 @@ This plugin accepts options to redefine the following block types:
 
 Return true if selection is inside a blockquote (and it can be unwrap).
 
-#### `transforms.wrapInBlockquote`
+#### `changes.wrapInBlockquote`
 
-`plugin.transforms.wrapInBlockquote(transform: Transform) => Transform`
+`plugin.changes.wrapInBlockquote(change: Change) => Change`
 
 Wrap current block in a new blockquote.
 
-#### `transforms.unwrapBlockquote`
+#### `changes.unwrapBlockquote`
 
-`plugin.transforms.unwrapBlockquote(transform: Transform) => Transform`
+`plugin.changes.unwrapBlockquote(change: Change) => Change`
 
 Unwrap from current blockquote if any.
-

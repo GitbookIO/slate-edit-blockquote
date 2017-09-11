@@ -4,11 +4,11 @@ const path = require('path');
 const Slate = require('slate');
 const readMetadata = require('read-metadata');
 
-const EditList = require('../lib');
+const EditBlockquote = require('../lib');
 
 describe('slate-edit-blockquote', function() {
     const tests = fs.readdirSync(__dirname);
-    const plugin = EditList();
+    const plugin = EditBlockquote();
 
     tests.forEach(function(test) {
         if (test[0] === '.' || path.extname(test).length > 0) return;
@@ -22,17 +22,17 @@ describe('slate-edit-blockquote', function() {
             const expectedPath = path.resolve(dir, 'expected.yaml');
             let expected;
             if (fs.existsSync(expectedPath)) {
-                expected = readMetadata.sync(expectedPath);
+                expected = Slate.State.fromJSON(readMetadata.sync(expectedPath)).toJSON();
             }
 
-            const runTransform = require(path.resolve(dir, 'transform.js'));
+            const runChange = require(path.resolve(dir, 'change.js'));
 
-            const stateInput = Slate.Raw.deserialize(input, { terse: true });
+            const stateInput = Slate.State.fromJSON(input);
 
-            const newState = runTransform(plugin, stateInput);
+            const newChange = runChange(plugin, stateInput.change());
 
             if (expected) {
-                const newDocJSon = Slate.Raw.serialize(newState, { terse: true });
+                const newDocJSon = newChange.state.toJSON();
                 expect(newDocJSon).toEqual(expected);
             }
         });
