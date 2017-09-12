@@ -13,7 +13,7 @@ module.exports = function(plugin, change) {
         change
     );
 
-    expect(newChange.state).toBeFalsy();
+    expect(newChange).toBeFalsy();
 
     return change;
 };
