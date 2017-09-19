@@ -1,12 +1,12 @@
 {
   "name": "slate-edit-blockquote",
   "description": "A Slate plugin to handle keyboard events in blockquotes.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "Apache-2.0",
   "repository": "git://github.com/GitbookIO/slate-edit-blockquote.git",
   "main": "./dist/index.js",
   "peerDependencies": {
-    "slate": "*"
+    "slate": "^0.24.0"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
@@ -24,7 +24,8 @@
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "read-metadata": "^1.0.0",
-    "slate": "0.15.10"
+    "immutable": "^3.8.1",
+    "slate": "^0.24.0"
   },
   "scripts": {
     "prepublish": "babel ./lib --out-dir ./dist",
