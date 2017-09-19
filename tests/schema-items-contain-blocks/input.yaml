@@ -12,9 +12,6 @@ document:
             - kind: text
               ranges:
                 - text: "2nd"
-        - kind: block
-          type: paragraph
-          nodes:
-            - kind: text
-              ranges:
-                - text: "item"
+        - kind: text
+          ranges:
+            - text: ""

@@ -9,18 +9,12 @@ document:
             - kind: text
               ranges:
                 - text: "1st"
-        - kind: block
-          type: paragraph
-          nodes:
             - kind: inline
               type: link
               nodes:
                 - kind: text
                   ranges:
                     - text: "2nd"
-        - kind: block
-          type: paragraph
-          nodes:
             - kind: text
               ranges:
-                - text: "item"
+                - text: ""
