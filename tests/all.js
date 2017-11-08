@@ -1,10 +1,10 @@
-const expect = require('expect');
-const fs = require('fs');
-const path = require('path');
-const Slate = require('slate');
-const readMetadata = require('read-metadata');
+import expect from 'expect';
+import fs from 'fs';
+import path from 'path';
+import Slate from 'slate';
+import readMetadata from 'read-metadata';
 
-const EditBlockquote = require('../lib');
+import EditBlockquote from '../lib';
 
 describe('slate-edit-blockquote', () => {
     const tests = fs.readdirSync(__dirname);
@@ -22,12 +22,12 @@ describe('slate-edit-blockquote', () => {
             const expectedPath = path.resolve(dir, 'expected.yaml');
             let expected;
             if (fs.existsSync(expectedPath)) {
-                expected = Slate.State
-                    .fromJSON(readMetadata.sync(expectedPath))
-                    .toJSON();
+                expected = Slate.State.fromJSON(
+                    readMetadata.sync(expectedPath)
+                ).toJSON();
             }
 
-            const runChange = require(path.resolve(dir, 'change.js'));
+            const runChange = require(path.resolve(dir, 'change.js')).default;
 
             const stateInput = Slate.State.fromJSON(input);
 

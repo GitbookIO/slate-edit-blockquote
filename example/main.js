@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 
-const React = require('react');
-const ReactDOM = require('react-dom');
-const Slate = require('slate');
-const { Editor } = require('slate-react');
-const PluginEditBlockquote = require('../lib/');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Slate from 'slate';
+import { Editor } from 'slate-react';
+import PluginEditBlockquote from '../lib/';
 
-const stateJson = require('./state');
+import stateJson from './state';
 
 const plugin = PluginEditBlockquote();
 const plugins = [plugin];

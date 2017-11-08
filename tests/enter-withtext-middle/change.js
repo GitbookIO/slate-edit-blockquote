@@ -1,6 +1,6 @@
-const expect = require('expect');
+import expect from 'expect';
 
-module.exports = function(plugin, change) {
+export default function(plugin, change) {
     const selectedBlock = change.state.document.getDescendant('_selection_key');
     change.collapseToStartOf(selectedBlock);
 
