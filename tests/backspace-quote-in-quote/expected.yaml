@@ -7,17 +7,17 @@ document:
           type: paragraph
           nodes:
             - kind: text
-              ranges:
+              leaves:
                 - text: P1
         - kind: block
           type: paragraph
           nodes:
             - kind: text
-              ranges:
+              leaves:
                 - text: "P2"
         - kind: block
           type: paragraph
           nodes:
             - kind: text
-              ranges:
+              leaves:
                 - text: P3

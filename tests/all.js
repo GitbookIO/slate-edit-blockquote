@@ -1,39 +1,45 @@
-const expect = require('expect');
-const fs = require('fs');
-const path = require('path');
-const Slate = require('slate');
-const readMetadata = require('read-metadata');
+import expect from 'expect';
+import fs from 'fs';
+import path from 'path';
+import Slate from 'slate';
+import readMetadata from 'read-metadata';
 
-const EditBlockquote = require('../lib');
+import EditBlockquote from '../lib';
 
-describe('slate-edit-blockquote', function() {
+const PLUGIN = EditBlockquote();
+const SCHEMA = Slate.Schema.create({
+    plugins: [PLUGIN]
+});
+
+function deserializeValue(json) {
+    return Slate.Value.fromJSON(
+        { ...json, schema: SCHEMA },
+        { normalize: false }
+    );
+}
+
+describe('slate-edit-blockquote', () => {
     const tests = fs.readdirSync(__dirname);
-    const plugin = EditBlockquote();
 
-    tests.forEach(function(test) {
+    tests.forEach((test, index) => {
         if (test[0] === '.' || path.extname(test).length > 0) return;
-
-        it(test, function() {
+        it(test, () => {
             const dir = path.resolve(__dirname, test);
-
-            const inputPath = path.resolve(dir, 'input.yaml');
-            const input = readMetadata.sync(inputPath);
-
+            const input = readMetadata.sync(path.resolve(dir, 'input.yaml'));
             const expectedPath = path.resolve(dir, 'expected.yaml');
-            let expected;
-            if (fs.existsSync(expectedPath)) {
-                expected = Slate.State.fromJSON(readMetadata.sync(expectedPath)).toJSON();
-            }
+            const expected =
+                fs.existsSync(expectedPath) && readMetadata.sync(expectedPath);
 
-            const runChange = require(path.resolve(dir, 'change.js'));
+            // eslint-disable-next-line
+            const runChange = require(path.resolve(dir, 'change.js')).default;
 
-            const stateInput = Slate.State.fromJSON(input);
+            const valueInput = deserializeValue(input);
 
-            const newChange = runChange(plugin, stateInput.change());
+            const newChange = runChange(PLUGIN, valueInput.change());
 
             if (expected) {
-                const newDocJSon = newChange.state.toJSON();
-                expect(newDocJSon).toEqual(expected);
+                const newDocJSon = newChange.value.toJSON();
+                expect(newDocJSon).toEqual(deserializeValue(expected).toJSON());
             }
         });
     });

@@ -1,19 +1,20 @@
-const expect = require('expect');
+import expect from 'expect';
 
-module.exports = function(plugin, change) {
-    const selectedBlock = change.state.document.getDescendant('_selection_key');
+export default function(plugin, change) {
+    const selectedBlock = change.value.document.getDescendant('_selection_key');
     change.collapseToStartOf(selectedBlock);
 
     const newChange = plugin.onKeyDown(
         {
             preventDefault() {},
-            stopPropagation() {}
+            stopPropagation() {},
+            key: 'Enter'
         },
-        { key: 'enter' },
-        change
+        change,
+        {}
     );
 
-    expect(newChange).toBeFalsy();
+    expect(newChange).toBe(undefined);
 
     return change;
-};
+}

@@ -7,13 +7,13 @@ document:
           type: paragraph
           nodes:
             - kind: text
-              ranges:
+              leaves:
                 - text: P1
     - kind: block
       type: paragraph
       nodes:
         - kind: text
-          ranges:
+          leaves:
             - text: ""
     - kind: block
       type: blockquote
@@ -22,5 +22,5 @@ document:
           type: paragraph
           nodes:
             - kind: text
-              ranges:
+              leaves:
                 - text: P3
