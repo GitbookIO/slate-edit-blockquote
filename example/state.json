@@ -7,7 +7,7 @@
                 "nodes": [
                     {
                         "kind": "text",
-                        "ranges": [
+                        "leaves": [
                             {
                                 "text": "Slate + Blockquote Edition"
                             }
@@ -21,7 +21,7 @@
                 "nodes": [
                     {
                         "kind": "text",
-                        "ranges": [
+                        "leaves": [
                             {
                                 "text": "This page is a basic example of Slate + slate-edit-blockquote plugin."
                             }
@@ -39,7 +39,7 @@
                         "nodes": [
                             {
                                 "kind": "text",
-                                "ranges": [
+                                "leaves": [
                                     {
                                         "text": "Some text in the blockquote"
                                     }
@@ -55,7 +55,7 @@
                 "nodes": [
                     {
                         "kind": "text",
-                        "ranges": [
+                        "leaves": [
                             {
                                 "text": "End paragraph"
                             }

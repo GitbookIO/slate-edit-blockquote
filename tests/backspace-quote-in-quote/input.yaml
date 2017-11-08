@@ -7,7 +7,7 @@ document:
           type: paragraph
           nodes:
             - kind: text
-              ranges:
+              leaves:
                 - text: P1
         - kind: block
           type: blockquote
@@ -17,11 +17,11 @@ document:
               key:  '_selection_key'
               nodes:
                 - kind: text
-                  ranges:
+                  leaves:
                     - text: "P2"
         - kind: block
           type: paragraph
           nodes:
             - kind: text
-              ranges:
+              leaves:
                 - text: P3
