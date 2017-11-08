@@ -1,54 +1,56 @@
-/* eslint-disable react/prop-types */
-
+// @flow
+/* eslint-disable import/no-extraneous-dependencies */
+/* global document */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Slate from 'slate';
 import { Editor } from 'slate-react';
 import PluginEditBlockquote from '../lib/';
 
-import stateJson from './state';
+import INITIAL_VALUE from './value';
 
 const plugin = PluginEditBlockquote();
 const plugins = [plugin];
 
-const SCHEMA = {
-    nodes: {
-        blockquote: props => (
-            <blockquote {...props.attributes}>{props.children}</blockquote>
-        ),
-        paragraph: props => <p {...props.attributes}>{props.children}</p>,
-        heading: props => <h1 {...props.attributes}>{props.children}</h1>
+function renderNode(props: *) {
+    const { node, children, attributes } = props;
+    switch (node.type) {
+        case 'blockquote':
+            return <blockquote {...attributes}>{children}</blockquote>;
+        case 'paragraph':
+            return <p {...attributes}>{children}</p>;
+        case 'heading':
+            return <h1 {...attributes}>{children}</h1>;
+        default:
+            return null;
     }
-};
+}
 
-const Example = React.createClass({
-    getInitialState() {
-        return {
-            state: Slate.State.fromJSON(stateJson)
-        };
-    },
+class Example extends React.Component<*, *> {
+    state = {
+        value: INITIAL_VALUE
+    };
 
-    onChange({ state }) {
+    onChange = ({ value }) => {
         this.setState({
-            state
+            value
         });
-    },
+    };
 
-    onWrapInBlockquote(e) {
-        const { state } = this.state;
+    onWrapInBlockquote = e => {
+        const { value } = this.state;
 
-        this.onChange(plugin.changes.wrapInBlockquote(state.change()));
-    },
+        this.onChange(plugin.changes.wrapInBlockquote(value.change()));
+    };
 
-    onUnwrapBlockquote(e) {
-        const { state } = this.state;
+    onUnwrapBlockquote = e => {
+        const { value } = this.state;
 
-        this.onChange(plugin.changes.unwrapBlockquote(state.change()));
-    },
+        this.onChange(plugin.changes.unwrapBlockquote(value.change()));
+    };
 
     render() {
-        const { state } = this.state;
-        const inBlockquote = plugin.utils.isSelectionInBlockquote(state);
+        const { value } = this.state;
+        const inBlockquote = plugin.utils.isSelectionInBlockquote(value);
 
         return (
             <div>
@@ -66,13 +68,14 @@ const Example = React.createClass({
                 <Editor
                     placeholder={'Enter some text...'}
                     plugins={plugins}
-                    state={state}
+                    value={value}
                     onChange={this.onChange}
-                    schema={SCHEMA}
+                    renderNode={renderNode}
                 />
             </div>
         );
     }
-});
+}
 
+// $FlowFixMe
 ReactDOM.render(<Example />, document.getElementById('example'));
