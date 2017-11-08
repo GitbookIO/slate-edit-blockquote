@@ -41,7 +41,7 @@ This plugin accepts options to redefine the following block types:
 
 #### `utils.isSelectionInBlockquote`
 
-`plugin.utils.isSelectionInBlockquote(state: State) => Boolean`
+`plugin.utils.isSelectionInBlockquote(value: Value) => Boolean`
 
 Return true if selection is inside a blockquote (and it can be unwrap).
 

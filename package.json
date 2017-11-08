@@ -6,7 +6,8 @@
   "repository": "git://github.com/GitbookIO/slate-edit-blockquote.git",
   "main": "./dist/index.js",
   "peerDependencies": {
-    "slate": "^0.29.0"
+    "slate": "^0.29.0",
+    "immutable": "^3.8.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -42,7 +43,7 @@
     "serve-example": "http-server ./example/ -p 8080",
     "start": "npm run build-example && npm run serve-example",
     "deploy-example": "npm run build-example && gh-pages -d ./example",
-    "test": "./node_modules/.bin/mocha ./tests/all.js --compilers js:babel-register --bail --reporter=list"
+    "test": "./node_modules/.bin/mocha ./tests/all.js --compilers js:babel-register --reporter=list"
   },
   "keywords": [
     "slate"
