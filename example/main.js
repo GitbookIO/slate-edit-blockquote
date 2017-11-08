@@ -9,15 +9,15 @@ const PluginEditBlockquote = require('../lib/');
 const stateJson = require('./state');
 
 const plugin = PluginEditBlockquote();
-const plugins = [
-    plugin
-];
+const plugins = [plugin];
 
 const SCHEMA = {
     nodes: {
-        blockquote: props => <blockquote {...props.attributes}>{props.children}</blockquote>,
-        paragraph:  props => <p {...props.attributes}>{props.children}</p>,
-        heading:    props => <h1 {...props.attributes}>{props.children}</h1>
+        blockquote: props => (
+            <blockquote {...props.attributes}>{props.children}</blockquote>
+        ),
+        paragraph: props => <p {...props.attributes}>{props.children}</p>,
+        heading: props => <h1 {...props.attributes}>{props.children}</h1>
     }
 };
 
@@ -37,17 +37,13 @@ const Example = React.createClass({
     onWrapInBlockquote(e) {
         const { state } = this.state;
 
-        this.onChange(
-            plugin.changes.wrapInBlockquote(state.change())
-        );
+        this.onChange(plugin.changes.wrapInBlockquote(state.change()));
     },
 
     onUnwrapBlockquote(e) {
         const { state } = this.state;
 
-        this.onChange(
-            plugin.changes.unwrapBlockquote(state.change())
-        );
+        this.onChange(plugin.changes.unwrapBlockquote(state.change()));
     },
 
     render() {
@@ -57,8 +53,15 @@ const Example = React.createClass({
         return (
             <div>
                 <div>
-                    <button onClick={this.onWrapInBlockquote}>Blockquote</button>
-                    <button onClick={this.onUnwrapBlockquote} disabled={!inBlockquote}>Unwrap</button>
+                    <button onClick={this.onWrapInBlockquote}>
+                        Blockquote
+                    </button>
+                    <button
+                        onClick={this.onUnwrapBlockquote}
+                        disabled={!inBlockquote}
+                    >
+                        Unwrap
+                    </button>
                 </div>
                 <Editor
                     placeholder={'Enter some text...'}
@@ -72,7 +75,4 @@ const Example = React.createClass({
     }
 });
 
-ReactDOM.render(
-    <Example />,
-    document.getElementById('example')
-);
+ReactDOM.render(<Example />, document.getElementById('example'));

@@ -6,14 +6,14 @@ const readMetadata = require('read-metadata');
 
 const EditBlockquote = require('../lib');
 
-describe('slate-edit-blockquote', function() {
+describe('slate-edit-blockquote', () => {
     const tests = fs.readdirSync(__dirname);
     const plugin = EditBlockquote();
 
-    tests.forEach(function(test) {
+    tests.forEach(test => {
         if (test[0] === '.' || path.extname(test).length > 0) return;
 
-        it(test, function() {
+        it(test, () => {
             const dir = path.resolve(__dirname, test);
 
             const inputPath = path.resolve(dir, 'input.yaml');
@@ -22,7 +22,9 @@ describe('slate-edit-blockquote', function() {
             const expectedPath = path.resolve(dir, 'expected.yaml');
             let expected;
             if (fs.existsSync(expectedPath)) {
-                expected = Slate.State.fromJSON(readMetadata.sync(expectedPath)).toJSON();
+                expected = Slate.State
+                    .fromJSON(readMetadata.sync(expectedPath))
+                    .toJSON();
             }
 
             const runChange = require(path.resolve(dir, 'change.js'));
