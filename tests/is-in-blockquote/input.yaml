@@ -1,29 +1,29 @@
 document:
   nodes:
-    - kind: block
+    - object: block
       type: paragraph
       nodes:
-          - kind: text
+          - object: text
             key: noquote
             leaves:
                 - text: Not in a quote
-    - kind: block
+    - object: block
       type: blockquote
       nodes:
-        - kind: block
+        - object: block
           type: paragraph
           nodes:
-            - kind: text
+            - object: text
               key: quote
               leaves:
                 - text: P1
-        - kind: block
+        - object: block
           type: list
           nodes:
-            - kind: block
+            - object: block
               type: item
               nodes:
-                  - kind: text
+                  - object: text
                     key: quotedeep
                     leaves:
                         - text: Deep
