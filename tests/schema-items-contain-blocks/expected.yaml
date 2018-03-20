@@ -1,20 +1,20 @@
 document:
   nodes:
-    - kind: block
+    - object: block
       type: blockquote
       nodes:
-        - kind: block
+        - object: block
           type: paragraph
           nodes:
-            - kind: text
+            - object: text
               leaves:
                 - text: "1st"
-            - kind: inline
+            - object: inline
               type: link
               nodes:
-                - kind: text
+                - object: text
                   leaves:
                     - text: "2nd"
-            - kind: text
+            - object: text
               leaves:
                 - text: ""
