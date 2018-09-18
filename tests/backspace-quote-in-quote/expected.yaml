@@ -1,23 +1,23 @@
 document:
   nodes:
-    - kind: block
+    - object: block
       type: blockquote
       nodes:
-        - kind: block
+        - object: block
           type: paragraph
           nodes:
-            - kind: text
+            - object: text
               leaves:
                 - text: P1
-        - kind: block
+        - object: block
           type: paragraph
           nodes:
-            - kind: text
+            - object: text
               leaves:
                 - text: "P2"
-        - kind: block
+        - object: block
           type: paragraph
           nodes:
-            - kind: text
+            - object: text
               leaves:
                 - text: P3
