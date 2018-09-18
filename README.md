@@ -5,6 +5,11 @@
 
 A Slate plugin to handle keyboard events in blockquotes. Blockquotes can contain blocks.
 
+> ⚠️  This repository is now using GitBook's fork of [ianstormtaylor/slate](https://github.com/ianstormtaylor/slate).
+> Previous versions are still [available on NPM](https://www.npmjs.com/package/slate-edit-blockquote)
+> All the versions using GitBook's fork of slate are now published under the `@gitbook` NPM scope.
+> To learn more about why we forked Slate, read [our manifest](https://github.com/GitbookIO/slate/blob/master/Readme.md)
+
 ### Install
 
 ```
