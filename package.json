@@ -11,8 +11,8 @@
     "@gitbook/slate-schema-violations": "^0.1.20"
   },
   "files": [
-     "dist",
-     "*.md"
+    "dist",
+    "*.md"
   ],
   "devDependencies": {
     "babel-cli": "^6.26.0",
