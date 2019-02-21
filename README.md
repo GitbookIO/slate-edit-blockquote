@@ -1,14 +1,14 @@
+> ⚠️  This repository is archived and has moved to [GitBook's fork](https://github.com/GitbookIO/slate) of [ianstormtaylor/slate](https://github.com/ianstormtaylor/slate).
+> Previous versions are still [available on NPM](https://www.npmjs.com/package/slate-edit-table)
+> All the versions using GitBook's fork of slate are now published under the `@gitbook` NPM scope.
+> To learn more about why we forked Slate, read [our manifest](https://github.com/GitbookIO/slate/blob/master/Forked.md)
+
 # slate-edit-blockquote
 
 [![NPM version](https://badge.fury.io/js/slate-edit-blockquote.svg)](http://badge.fury.io/js/slate-edit-blockquote)
 [![Linux Build Status](https://travis-ci.org/GitbookIO/slate-edit-blockquote.png?branch=master)](https://travis-ci.org/GitbookIO/slate-edit-blockquote)
 
 A Slate plugin to handle keyboard events in blockquotes. Blockquotes can contain blocks.
-
-> ⚠️  This repository is now using GitBook's fork of [ianstormtaylor/slate](https://github.com/ianstormtaylor/slate).
-> Previous versions are still [available on NPM](https://www.npmjs.com/package/slate-edit-blockquote)
-> All the versions using GitBook's fork of slate are now published under the `@gitbook` NPM scope.
-> To learn more about why we forked Slate, read [our manifest](https://github.com/GitbookIO/slate/blob/master/Readme.md)
 
 ### Install
 
